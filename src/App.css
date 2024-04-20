@@ -30,7 +30,7 @@
   background-color: #242424;
   padding: 2em;
   border-radius: 5px;
-  width: 50%;
+  width: 90%;
   margin: 0 auto;
 }
 
@@ -154,7 +154,7 @@ input[type="color"] {
 /* Tablet */
 @media (min-width: 768px) {
   .modal-content {
-    width: 40%;
+    width: 70%;
   }
   .todo-card {
     width: 300px;
@@ -164,7 +164,7 @@ input[type="color"] {
 /* Desktop */
 @media (min-width: 1024px) {
   .modal-content {
-    width: 30%;
+    width: 50%;
   }
   .todo-card {
     width: 400px;

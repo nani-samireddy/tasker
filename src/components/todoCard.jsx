@@ -1,25 +1,37 @@
-import React from 'react'
-import { useTodos } from '../context/todoContext';
-
-export default function TodoCard({ id, title = "Todo Title", description = "Todo Description", status = "pending", dueDate = new Date().toLocaleDateString() }) {
+export default function TodoCard({
+    id,
+    title = 'Todo Title',
+    description = 'Todo Description',
+    status = 'pending',
+    dueDate = new Date().toLocaleDateString(),
+}) {
     const { deleteTodo, setShowTodoModal, setEditingTodoId } = useTodos();
+
     const handleEdit = () => {
         setEditingTodoId(id);
         setShowTodoModal(true);
+    };
 
-    }
     const handleDelete = () => {
         deleteTodo(id);
-    }
+    };
 
-    const handleDragStart = (e) => {
-        e.dataTransfer.setData("todoId", id);
-        console.log('drag start');
-        console.log(id);
-    }
+    const handleTouchStart = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        e.currentTarget.style.opacity = '0.5'; // Optional: Visual feedback for touch start
+        e.dataTransfer.setData('text/plain', id);
+    };
 
     return (
-        <div className="todo-card" draggable onDragStart={handleDragStart}>
+        <div
+            className="todo-card"
+            draggable="true"
+            onTouchStart={handleTouchStart}
+            onTouchEnd={(e) => {
+                e.currentTarget.style.opacity = ''; // Reset opacity on touch end
+            }}
+        >
             <h4 className='todo-title'>{title}</h4>
             <p className='todo-description'>{description}</p>
             <div className="status-and-date">
@@ -32,5 +44,5 @@ export default function TodoCard({ id, title = "Todo Title", description = "Todo
                 <button className="button-danger" onClick={handleDelete}>🗑 trash</button>
             </div>
         </div>
-    )
+    );
 }
