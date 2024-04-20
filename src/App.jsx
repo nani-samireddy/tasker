@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./App.css";
 import TodoContainer from "./components/todoContainer";
 import TodoEditingModal from "./components/todoEditingModal";

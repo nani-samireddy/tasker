@@ -1,4 +1,3 @@
-import React from 'react'
 import { useTodos } from '../context/todoContext';
 
 export default function TodoCard({ id, title = "Todo Title", description = "Todo Description", status = "pending", dueDate = new Date().toLocaleDateString() }) {

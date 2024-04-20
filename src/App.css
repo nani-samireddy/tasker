@@ -19,7 +19,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 100;
@@ -30,7 +30,7 @@
   background-color: #242424;
   padding: 2em;
   border-radius: 5px;
-  width: 90%;
+  width: 80%;
   margin: 0 auto;
 }
 
@@ -155,6 +155,7 @@ input[type="color"] {
 @media (min-width: 768px) {
   .modal-content {
     width: 70%;
+    margin: 0 auto;
   }
   .todo-card {
     width: 300px;
@@ -165,6 +166,7 @@ input[type="color"] {
 @media (min-width: 1024px) {
   .modal-content {
     width: 50%;
+    margin: 0 auto;
   }
   .todo-card {
     width: 400px;

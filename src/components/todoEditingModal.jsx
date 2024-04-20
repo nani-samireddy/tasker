@@ -7,7 +7,6 @@ export default function TodoEditingModal({ saveAction, closeAction }) {
     const descriptionRef = createRef();
     const statusRef = createRef();
     const dueDateRef = createRef();
-    const colorRef = createRef();
 
     useEffect(() => {
         titleRef.current.focus();
@@ -18,7 +17,6 @@ export default function TodoEditingModal({ saveAction, closeAction }) {
             descriptionRef.current.value = currentTodo.description;
             statusRef.current.value = currentTodo.status;
             dueDateRef.current.value = currentTodo.dueDate;
-            colorRef.current.value = currentTodo.color;
         }
 
     }, []);
@@ -37,7 +35,6 @@ export default function TodoEditingModal({ saveAction, closeAction }) {
             description: descriptionRef.current.value,
             status: statusRef.current.value,
             dueDate: dueDateRef.current.value,
-            color: colorRef.current.value,
         };
         saveAction(newTodo);
     };
@@ -66,10 +63,6 @@ export default function TodoEditingModal({ saveAction, closeAction }) {
                     <div className='form-control'>
                         <label htmlFor='due-date'>Due Date</label>
                         <input ref={dueDateRef} type='date' id='due-date' name='due-date' />
-                    </div>
-                    <div className='form-control'>
-                        <label htmlFor='color'>Color</label>
-                        <input ref={colorRef} type='color' id='color' name='color' defaultValue={"#ffffff"} />
                     </div>
                     <div className="buttons-container">
                         <button type="submit" className='button-primary' onClick={handleSave}>Save</button>
