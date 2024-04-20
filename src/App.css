@@ -8,6 +8,7 @@
 
 #app-body {
   width: 100%;
+  padding: 2rem;
 }
 
 .card {
@@ -84,7 +85,7 @@ input[type="color"] {
   align-items: flex-start;
   justify-content: space-between;
   gap: 3px;
-  width: 300px;
+  width: 80%;
   transition: all 0.25s;
 }
 .todo-card:hover {
@@ -148,4 +149,24 @@ input[type="color"] {
 .todo-status.todo-status-in-progress {
   background-color: #ffcc00;
   color: #000;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .modal-content {
+    width: 40%;
+  }
+  .todo-card {
+    width: 300px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .modal-content {
+    width: 30%;
+  }
+  .todo-card {
+    width: 400px;
+  }
 }
