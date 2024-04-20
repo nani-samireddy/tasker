@@ -30,6 +30,7 @@ export const TodoProvider = ({ children }) => {
 
     const updateTodo = (updatedTodo) => {
         setTodos(todos.map(todo => todo.id === updatedTodo.id ? updatedTodo : todo));
+        console.log('updated todo', updatedTodo);
     }
 
     const getCurrentTodo = () => {

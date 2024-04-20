@@ -23,6 +23,7 @@ function App() {
     }
     closeModal();
   }
+
   return (
     <>
       <main id="app-body">
@@ -32,9 +33,9 @@ function App() {
           <button className="button-primary" onClick={() => { setShowTodoModal(!showTodoModal) }}>+ New Task</button>
           <button className="button-danger" onClick={clearTodos}> 🗑  Clear All</button>
         </div>
-        <TodoContainer title="⏳Pending" todos={todos.filter(todo => todo.status === 'pending')} emptyMessage="Waiting for tasks like waiting for Wi-Fi in the middle of nowhere" />
-        <TodoContainer title="🕒 In Progress" todos={todos.filter(todo => todo.status === 'in-progress')} emptyMessage="Looks like tasks are on a coffee break, just like us!" />
-        <TodoContainer title="✅ Done" todos={todos.filter(todo => todo.status === 'completed')} emptyMessage="This section is so empty, even crickets aren't chirping!" />
+        <TodoContainer sectionType="pending" title="⏳Pending" sectionTodos={todos.filter(todo => todo.status === 'pending')} emptyMessage="Waiting for tasks like waiting for Wi-Fi in the middle of nowhere" />
+        <TodoContainer sectionType="in-progress" title="🕒 In Progress" sectionTodos={todos.filter(todo => todo.status === 'in-progress')} emptyMessage="Looks like tasks are on a coffee break, just like us!" />
+        <TodoContainer sectionType="completed" title="✅ Done" sectionTodos={todos.filter(todo => todo.status === 'completed')} emptyMessage="This section is so empty, even crickets aren't chirping!" />
       </main>
       {
         showTodoModal && (<TodoEditingModal saveAction={saveTodo} closeAction={closeModal} />)

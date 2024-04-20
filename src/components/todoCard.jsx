@@ -12,8 +12,14 @@ export default function TodoCard({ id, title = "Todo Title", description = "Todo
         deleteTodo(id);
     }
 
+    const handleDragStart = (e) => {
+        e.dataTransfer.setData("todoId", id);
+        console.log('drag start');
+        console.log(id);
+    }
+
     return (
-        <div className="todo-card">
+        <div className="todo-card" draggable onDragStart={handleDragStart}>
             <h4 className='todo-title'>{title}</h4>
             <p className='todo-description'>{description}</p>
             <div className="status-and-date">
