@@ -1,58 +1,36 @@
+/* Index.css */
 :root {
-    /* Font */
-    --font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-    --font-size: 1em;
-    --font-weight: 400;
-    --line-height: 1.5;
-
     /* Colors */
-    --color-text: rgba(255, 255, 255, 0.87);
     --color-primary: #646cff;
     --color-primary-hover: #535bf2;
-    --color-accent: #1a1a1a;
-    --color-accent-hover: #646cff;
+    --color-white: #ffffff;
+    --text-color-white: #213547;
     --color-danger: #dc2525a1;
-    --color-danger-border: #dc2525a1;
-    --color-danger-text: #ffffff;
+    --color-backdrop: #05134524;
+    --background-color-dark: #1a1a1a;
+    --modal-background-color: #242424;
+    --input-background-color: #1212132b;
+    --input-background-color-white: #b0b0b033;
+    --input-border-color: #363040;
+    --input-border-color-white: #363040;
+    --todo-status-completed: #00ff00;
+    --todo-status-pending: #ff0000;
+    --todo-status-in-progress: #ffcc00;
+    --color-divider: #ccc;
+    --button-accent-color: #f9f9f9;
 
-    --color-background: #242424;
-    --color-border: #ccc;
-
-    --color-light-text: #213547;
-    --color-light-background: #ffffff;
-    --color-light-hover: #747bff;
-    --color-light-form-bg: #b0b0b033;
-    --color-light-form-border: #bcb9c1;
-    --color-light-modal-bg: #fff;
-    --color-light-modal-content: #fff;
-
-    /* Font Rendering */
-    --font-rendering: optimizeLegibility;
-    --font-smoothing: antialiased;
-    --osx-font-smoothing: grayscale;
-
-    /* Sizes */
-    --min-width: 320px;
-    --min-height: 100vh;
-
-    /* Transitions */
-    --transition: border-color 0.25s;
-}
-
-/* Apply the variables */
-:root {
-    font-family: var(--font-family);
-    font-size: var(--font-size);
-    font-weight: var(--font-weight);
-    line-height: var(--line-height);
-    font-synthesis: var(--font-synthesis);
-    text-rendering: var(--font-rendering);
-    -webkit-font-smoothing: var(--font-smoothing);
-    -moz-osx-font-smoothing: var(--osx-font-smoothing);
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
 
     color-scheme: light dark;
-    color: var(--color-text);
-    background-color: var(--color-background);
+    color: #ffffffde;
+    background-color: var(--modal-background-color);
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -70,13 +48,18 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    min-width: var(--min-width);
-    min-height: var(--min-height);
+    min-width: 320px;
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
 }
 
 hr {
     border: 0;
-    border-top: 1px solid var(--color-border);
+    border-top: 1px solid var(--color-divider);
     margin: 2em 0;
 }
 
@@ -84,15 +67,15 @@ button {
     border-radius: 8px;
     border: 1px solid transparent;
     padding: 0.6em 1.2em;
-    font-size: var(--font-size);
-    font-weight: var(--font-weight);
+    font-size: 1em;
+    font-weight: 500;
     font-family: inherit;
-    background-color: var(--color-accent);
+    background-color: var(--background-color-dark);
     cursor: pointer;
-    transition: var(--transition);
+    transition: border-color 0.25s;
 }
 button:hover {
-    border-color: var(--color-primary-hover);
+    border-color: var(--color-primary);
 }
 button:focus,
 button:focus-visible {
@@ -100,40 +83,37 @@ button:focus-visible {
 }
 
 .button-primary:hover {
-    background-color: var(--color-primary-hover);
-    color: var(--color-text);
+    background-color: var(--color-primary);
+    color: var(--color-white);
 }
 
 .button-danger:hover {
     background-color: var(--color-danger);
-    border: 1px solid var(--color-danger-border);
-    color: var(--color-danger-text);
+    border: 1px solid var(--color-danger);
+    color: var(--color-white);
 }
 
 @media (prefers-color-scheme: light) {
     :root {
-        color: var(--color-light-text);
-        background-color: var(--color-light-background);
-    }
-    a:hover {
-        color: var(--color-light-hover);
+        color: var(--text-color-white);
+        background-color: var(--color-white);
     }
     button {
-        background-color: var(--color-light-form-bg);
+        background-color: var(--button-accent-color);
     }
 
     .modal-content {
-        background-color: var(--color-light-modal-content);
+        background-color: var(--color-white);
     }
 
     input,
     textarea,
     select {
-        background-color: var(--color-light-form-bg);
-        border: 1px solid var(--color-light-form-border);
+        background-color: var(--input-background-color-white);
+        border: 1px solid var(--input-border-color-white);
     }
 
     .todo-card {
-        background-color: var(--color-light-background);
+        background-color: var(--color-white);
     }
 }

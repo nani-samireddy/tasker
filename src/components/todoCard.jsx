@@ -1,6 +1,12 @@
 import { useTodos } from "../context/todoContext";
 
-export default function TodoCard({ id, title = "Todo Title", description = "Todo Description", status = "pending", dueDate = new Date().toLocaleDateString() }) {
+export default function TodoCard({
+    id,
+    title = "Todo Title",
+    description = "Todo Description",
+    status = "pending",
+    dueDate = new Date().toLocaleDateString(),
+}) {
     const { deleteTodo, setShowTodoModal, setEditingTodoId } = useTodos();
     const handleEdit = () => {
         setEditingTodoId(id);

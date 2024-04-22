@@ -20,13 +20,13 @@
     left: 0;
     width: 100vw;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: #00000080;
     z-index: 100;
 }
 
 .modal-content {
     position: relative;
-    background-color: var(--color-accent);
+    background-color: var(--modal-background-color);
     padding: 2em;
     border-radius: 5px;
     width: 80%;
@@ -46,8 +46,8 @@ input,
 textarea,
 select {
     padding: 0.8em;
-    border: 1px solid #363040;
-    background-color: var(--color-light-form-bg);
+    border: 1px solid var(--input-border-color);
+    background-color: var(--input-background-color);
     border-radius: 5px;
     outline: none;
     font-size: 1em;
@@ -82,7 +82,7 @@ input[type="color"] {
 
 .todo-card {
     padding: 2em;
-    background-color: var(--color-light-background);
+    background-color: var(--input-background-color);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -91,10 +91,10 @@ input[type="color"] {
     gap: 3px;
     width: 80%;
     transition: all 0.25s;
-    filter: drop-shadow(0 0 10px rgba(43, 43, 45, 0.164));
+    filter: drop-shadow(0 0 10px #2b2b2d2a);
 }
 .todo-card:hover {
-    filter: drop-shadow(0 0 10px rgba(5, 19, 69, 0.141));
+    filter: drop-shadow(0 0 10px var(--color-backdrop));
     transform: scale(1.02);
 }
 
@@ -105,7 +105,7 @@ input[type="color"] {
 
 .todo-card:has(.todo-status.todo-status-completed):hover,
 .outdated {
-    filter: grayscale(1) drop-shadow(0 0 10px rgba(5, 19, 69, 0.141));
+    filter: grayscale(1) drop-shadow(0 0 10px var(--color-backdrop));
     opacity: 0.6;
 }
 
@@ -143,17 +143,17 @@ input[type="color"] {
 }
 
 .todo-status.todo-status-completed {
-    background-color: #00ff00;
+    background-color: var(--todo-status-completed);
     color: #000;
 }
 
 .todo-status.todo-status-pending {
-    background-color: #ff0000;
-    color: #fff;
+    background-color: var(--todo-status-pending);
+    color: var(--color-white);
 }
 
 .todo-status.todo-status-in-progress {
-    background-color: #ffcc00;
+    background-color: var(--todo-status-in-progress);
     color: #000;
 }
 
