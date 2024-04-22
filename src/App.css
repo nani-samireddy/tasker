@@ -1,9 +1,8 @@
+/* App.css */
 #root {
     max-width: 1280px;
     width: 100%;
-    /* margin: 0 auto; */
     padding: 2rem;
-    /* text-align: center; */
 }
 
 #app-body {
@@ -27,7 +26,7 @@
 
 .modal-content {
     position: relative;
-    background-color: #242424;
+    background-color: var(--color-accent);
     padding: 2em;
     border-radius: 5px;
     width: 80%;
@@ -48,13 +47,13 @@ textarea,
 select {
     padding: 0.8em;
     border: 1px solid #363040;
-    background-color: #1212132b;
+    background-color: var(--color-light-form-bg);
     border-radius: 5px;
     outline: none;
     font-size: 1em;
 }
 
-input[type='color'] {
+input[type="color"] {
     padding: 0;
     border: none;
 }
@@ -83,7 +82,7 @@ input[type='color'] {
 
 .todo-card {
     padding: 2em;
-    background-color: #1212132b;
+    background-color: var(--color-light-background);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -104,7 +103,8 @@ input[type='color'] {
     opacity: 0.6;
 }
 
-.todo-card:has(.todo-status.todo-status-completed):hover {
+.todo-card:has(.todo-status.todo-status-completed):hover,
+.outdated {
     filter: grayscale(1) drop-shadow(0 0 10px rgba(5, 19, 69, 0.141));
     opacity: 0.6;
 }
