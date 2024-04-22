@@ -17,8 +17,10 @@ export default function TodoEditingModal({ saveAction, closeAction }) {
             descriptionRef.current.value = currentTodo.description;
             statusRef.current.value = currentTodo.status;
             dueDateRef.current.value = currentTodo.dueDate;
+        } else {
+            const today = new Date().toISOString().slice(0, 10);
+            dueDateRef.current.value = today;
         }
-
     }, []);
 
 

@@ -1,24 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import TodoCard from './todoCard'
 import { useTodos } from '../context/todoContext';
 
 export default function TodoContainer({ title, sectionTodos, sectionType = "pending", emptyMessage = "No tasks found" }) {
     const { updateTodo, todos } = useTodos();
+    const [isDraggedOver, setIsDraggedOver] = useState(false);
     const handleDragOver = (e) => {
         e.preventDefault();
-        console.log('drag over');
+        setIsDraggedOver(true);
+    }
+
+    const handleDragLeave = (e) => {
+        e.preventDefault();
+        setIsDraggedOver(false);
     }
     const handleDrop = (e) => {
-        console.log('dropped');
+        setIsDraggedOver(false);
         const todoId = e.dataTransfer.getData("todoId");
-        console.log(todoId);
-        console.log(todos);
         const draggedTodo = todos.find(todo => todo.id == todoId);
-        console.log(draggedTodo);
+
+        if (draggedTodo.status === sectionType) return;
+
         updateTodo({ ...draggedTodo, status: sectionType });
     }
     return (
-        <div className="todos-container-section" onDrop={handleDrop} onDragOver={handleDragOver} onTouchMove={handleDragOver}>
+        <div className={`todos-container-section ${isDraggedOver ? 'todo-container-dragged-over' : ''}`} onDrop={handleDrop} onDragOver={handleDragOver} onDragLeave={handleDragLeave} onTouchMove={handleDragOver}>
             <h2>{title}</h2>
             {sectionTodos.length === 0 && <p className="empty-message"> {emptyMessage}</p>}
             <div className="todos-container">

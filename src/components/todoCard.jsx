@@ -19,7 +19,7 @@ export default function TodoCard({ id, title = "Todo Title", description = "Todo
 
     return (
         <div className="todo-card" draggable onDragStart={handleDragStart} onTouchStart={handleDragStart}>
-            <h4 className='todo-title'>{title}</h4>
+            <p className='todo-title'>{title}</p>
             <p className='todo-description'>{description}</p>
             <div className="status-and-date">
                 <p className={`todo-status todo-status-${status}`}> {status === 'completed' ? '✅ Done' : status === 'in-progress' ? '🕒 In Progress' : '⏳ Pending'}</p>
