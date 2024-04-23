@@ -9,7 +9,6 @@ export default function TodoEditingModal({ saveAction, closeAction }) {
     const dueDateRef = createRef();
 
     const setFormDefaults = () => {
-        titleRef.current.focus();
         // Get the current editing Todo Data if any.
         const currentTodo = getCurrentTodo();
         if (currentTodo) {
@@ -24,7 +23,11 @@ export default function TodoEditingModal({ saveAction, closeAction }) {
     };
 
     useEffect(() => {
+        // Set form defaults
         setFormDefaults();
+
+        // Focus after setting defaults
+        titleRef.current.focus();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -52,29 +55,15 @@ export default function TodoEditingModal({ saveAction, closeAction }) {
                 <form onSubmit={handleSave}>
                     <div className="form-control">
                         <label htmlFor="title">Title</label>
-                        <input
-                            ref={titleRef}
-                            type="text"
-                            id="title"
-                            name="title"
-                            placeholder="Debug the Universe"
-                            maxLength={40}
-                            minLength={1}
-                            required
-                        />
+                        <input ref={titleRef} type="text" id="title" name="title" placeholder="Debug the Universe" maxLength={40} minLength={1} required />
                     </div>
                     <div className="form-control">
                         <label htmlFor="description">Description</label>
-                        <textarea
-                            ref={descriptionRef}
-                            id="description"
-                            name="description"
-                            placeholder="Patch up black holes with quantum algorithms"
-                        ></textarea>
+                        <textarea ref={descriptionRef} id="description" name="description" placeholder="Patch up black holes with quantum algorithms" required ></textarea>
                     </div>
                     <div className="form-control">
                         <label htmlFor="status">Status</label>
-                        <select ref={statusRef} id="status" name="status">
+                        <select ref={statusRef} id="status" name="status" required >
                             <option value="pending">Pending</option>
                             <option value="in-progress">In Progress</option>
                             <option value="completed">Completed</option>
@@ -82,13 +71,19 @@ export default function TodoEditingModal({ saveAction, closeAction }) {
                     </div>
                     <div className="form-control">
                         <label htmlFor="due-date">Due Date</label>
-                        <input ref={dueDateRef} type="date" id="due-date" name="due-date" />
+                        <input
+                            ref={dueDateRef}
+                            type="date"
+                            id="due-date"
+                            name="due-date"
+                            required // Ensure required is still here
+                        />
                     </div>
                     <div className="buttons-container">
-                        <button type="submit" className="button-primary" onClick={handleSave}>
+                        <button type="submit" className="button-primary">
                             Save
                         </button>
-                        <button type="button" className="button-danger" onClick={handleClose}>
+                        <button className="button-danger" onClick={handleClose}>
                             Cancel
                         </button>
                     </div>

@@ -1,7 +1,9 @@
 import { createContext, useEffect, useContext, useState } from "react";
 
+// Create the todo context.
 const TodoContext = createContext();
 
+// Custom hook to use the todo context.
 export const useTodos = () => {
     const context = useContext(TodoContext);
     if (!context) {
@@ -11,7 +13,9 @@ export const useTodos = () => {
 };
 
 export const TodoProvider = ({ children }) => {
+
     const [todos, setTodos] = useState(() => {
+        // Get the todos from localStorage.
         const existingTodos = localStorage.getItem("todos");
         return existingTodos ? JSON.parse(existingTodos) : [];
     });
@@ -41,6 +45,7 @@ export const TodoProvider = ({ children }) => {
     };
 
     useEffect(() => {
+        // Save the todos to localStorage
         localStorage.setItem("todos", JSON.stringify(todos));
     }, [todos]);
 
