@@ -55,15 +55,30 @@ export default function TodoEditingModal({ saveAction, closeAction }) {
                 <form onSubmit={handleSave}>
                     <div className="form-control">
                         <label htmlFor="title">Title</label>
-                        <input ref={titleRef} type="text" id="title" name="title" placeholder="Debug the Universe" maxLength={40} minLength={1} required />
+                        <input
+                            ref={titleRef}
+                            type="text"
+                            id="title"
+                            name="title"
+                            placeholder="Debug the Universe"
+                            maxLength={40}
+                            minLength={1}
+                            required
+                        />
                     </div>
                     <div className="form-control">
                         <label htmlFor="description">Description</label>
-                        <textarea ref={descriptionRef} id="description" name="description" placeholder="Patch up black holes with quantum algorithms" required ></textarea>
+                        <textarea
+                            ref={descriptionRef}
+                            id="description"
+                            name="description"
+                            placeholder="Patch up black holes with quantum algorithms"
+                            required
+                        ></textarea>
                     </div>
                     <div className="form-control">
                         <label htmlFor="status">Status</label>
-                        <select ref={statusRef} id="status" name="status" required >
+                        <select ref={statusRef} id="status" name="status" required>
                             <option value="pending">Pending</option>
                             <option value="in-progress">In Progress</option>
                             <option value="completed">Completed</option>

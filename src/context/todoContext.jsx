@@ -13,7 +13,6 @@ export const useTodos = () => {
 };
 
 export const TodoProvider = ({ children }) => {
-
     const [todos, setTodos] = useState(() => {
         // Get the todos from localStorage.
         const existingTodos = localStorage.getItem("todos");

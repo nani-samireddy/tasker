@@ -3,7 +3,6 @@ import TodoCard from "./todoCard";
 import { useTodos } from "../context/todoContext";
 
 export default function TodoContainer({ title, sectionTodos, sectionType = "pending", emptyMessage = "No tasks found" }) {
-
     const { updateTodo, todos } = useTodos();
 
     const [isDraggedOver, setIsDraggedOver] = useState(false);

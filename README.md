@@ -85,7 +85,19 @@ The optimized build will be available in the `dist` directory.
 
 ## Screenshots
 
-[Insert screenshots or GIFs here to showcase the app's interface and functionality.]
+### video
+
+[Tasker - Todo App preview](./screenshots/Tasker.mov)
+
+### images
+
+![Tasker - Todo App](./screenshots/1.png)
+![Tasker - Todo App](./screenshots/2.png)
+![Tasker - Todo App](./screenshots/3.png)
+![Tasker - Todo App](./screenshots/4.png)
+![Tasker - Todo App](./screenshots/5.png)
+![Tasker - Todo App](./screenshots/6.png)
+![Tasker - Todo App](./screenshots/8.png)
 
 ## Contributing
 
