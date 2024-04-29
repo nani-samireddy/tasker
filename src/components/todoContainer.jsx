@@ -7,16 +7,31 @@ export default function TodoContainer({ title, sectionTodos, sectionType = "pend
 
     const [isDraggedOver, setIsDraggedOver] = useState(false);
 
+    /**
+     * Prevents the default behavior and sets the dragged over state to true.
+     *
+     * @param {Event} e
+     */
     const handleDragOver = (e) => {
         e.preventDefault();
         setIsDraggedOver(true);
     };
 
+    /**
+     * Prevents the default behavior and sets the dragged over state to false.
+     *
+     * @param {Event} e
+     */
     const handleDragLeave = (e) => {
         e.preventDefault();
         setIsDraggedOver(false);
     };
 
+    /**
+     * Updates the dragged Todo status to the current section type.
+     *
+     * @param {Event} e
+     */
     const handleDrop = (e) => {
         e.preventDefault();
 

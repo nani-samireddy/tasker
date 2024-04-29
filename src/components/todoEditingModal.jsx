@@ -8,6 +8,9 @@ export default function TodoEditingModal({ saveAction, closeAction }) {
     const statusRef = createRef();
     const dueDateRef = createRef();
 
+    /**
+     * Set the form defaults for the current editing Todo.
+     */
     const setFormDefaults = () => {
         // Get the current editing Todo Data if any.
         const currentTodo = getCurrentTodo();
@@ -23,7 +26,7 @@ export default function TodoEditingModal({ saveAction, closeAction }) {
     };
 
     useEffect(() => {
-        // Set form defaults
+        // Set the form defaults for the current editing Todo.
         setFormDefaults();
 
         // Focus after setting defaults
@@ -37,7 +40,9 @@ export default function TodoEditingModal({ saveAction, closeAction }) {
 
     const handleSave = (e) => {
         e.preventDefault();
-        const todoId = editingTodoId ?? Date.now();
+
+        // Get the current editing todo id or create a new one.
+        const todoId = editingTodoId ?? Date.now() + Math.floor(Math.random() * 1000);
         const newTodo = {
             id: todoId,
             title: titleRef.current.value,

@@ -9,15 +9,26 @@ export default function TodoCard({
 }) {
     const { deleteTodo, setShowTodoModal, setEditingTodoId } = useTodos();
 
+    /**
+     * Sets the current `editingTodoId` and displays the `todoModal`.
+     */
     const handleEdit = () => {
         setEditingTodoId(id);
         setShowTodoModal(true);
     };
 
+    /**
+     * Deletes the todo.
+     */
     const handleDelete = () => {
         deleteTodo(id);
     };
 
+    /**
+     * Sets the current Dragged `todoId` in the dataTransfer.
+     *
+     * @param {Event} e
+     */
     const handleDragStart = (e) => {
         // Set the todoId to the dataTransfer object.
         e.dataTransfer.setData("todoId", id);

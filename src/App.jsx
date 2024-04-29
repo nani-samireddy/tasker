@@ -6,11 +6,19 @@ import { useTodos } from "./context/todoContext";
 function App() {
     const { todos, addTodo, updateTodo, showTodoModal, setShowTodoModal, editingTodoId, setEditingTodoId, clearTodos } = useTodos();
 
+    /**
+     * Sets the showTodoModal state to false and resets the editingTodoId.
+     */
     const closeModal = () => {
         setShowTodoModal(false);
         setEditingTodoId(null);
     };
 
+    /**
+     * Called when the user clicks on save button in the editing modal. Saves/Updates the current editing todo.
+     *
+     * @param {Object} todo
+     */
     const saveTodo = (todo) => {
         if (editingTodoId) {
             updateTodo(todo);
